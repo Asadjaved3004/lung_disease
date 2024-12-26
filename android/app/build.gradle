@@ -1,0 +1,44 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin" // Flutter plugin should remain here.
+}
+
+android {
+    namespace = "com.example.fyp_lungs_disease"
+    compileSdk = 34 // Use a specific SDK version for clarity.
+
+    // If you're using NDK, ensure the version matches the installed one.
+    // ndkVersion = "23.1.7779620" // Uncomment and set your NDK version if needed.
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        applicationId = "com.example.fyp_lungs_disease"
+        minSdk = 21 // Minimum SDK level; adjust based on your requirements.
+        targetSdk = 33 // Match the compileSdk version.
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            // Ensure a signing configuration is added for release builds.
+            signingConfig = signingConfigs.debug
+            // Add ProGuard rules if needed.
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
